@@ -1,0 +1,23 @@
+// Data grafik kasus KPK per tahun (untuk bar chart)
+export const grafikKasusKPK = [
+  { tahun: 2004, kasus: 2 },
+  { tahun: 2005, kasus: 19 },
+  { tahun: 2006, kasus: 27 },
+  { tahun: 2007, kasus: 19 },
+  { tahun: 2008, kasus: 47 },
+  { tahun: 2009, kasus: 37 },
+  { tahun: 2010, kasus: 40 },
+  { tahun: 2011, kasus: 114 },
+  { tahun: 2012, kasus: 49 },
+  { tahun: 2013, kasus: 70 },
+  { tahun: 2014, kasus: 56 },
+  { tahun: 2015, kasus: 57 },
+  { tahun: 2016, kasus: 99 },
+  { tahun: 2017, kasus: 121 },
+  { tahun: 2018, kasus: 199 },
+  { tahun: 2019, kasus: 197 },
+  { tahun: 2020, kasus: 109 },
+  { tahun: 2021, kasus: 105 },
+  { tahun: 2022, kasus: 112 },
+  { tahun: 2023, kasus: 94 },
+]
