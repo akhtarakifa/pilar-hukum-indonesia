@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "pilarhukum-indonesia"
+  },
+  "targets": {
+    "pilarhukum-indonesia": {
+      "hosting": {
+        "pilarhukumid": [
+          "pilarhukumid"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
