@@ -4,7 +4,6 @@ import ImageWithSkeleton from './ui/ImageWithSkeleton'
 import Badge from './ui/Badge'
 import KasusCard from './ui/KasusCard'
 import BarChart from './ui/BarChart'
-import SplitText from './ui/SplitText'
 import GlossaryTerm from './ui/GlossaryTerm'
 
 export default function KPKSection() {
@@ -100,9 +99,11 @@ export default function KPKSection() {
                 marginTop: '24px'
               }}
             >
-              <strong style={{ display: 'block', color: 'var(--color-accent)', marginBottom: '8px' }}>
-                🛡️ Sifat Kelembagaan KPK:
-              </strong>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+                <strong style={{ color: 'var(--color-accent)' }}>
+                  Sifat Kelembagaan KPK:
+                </strong>
+              </div>
               <p style={{ margin: 0, fontSize: '0.95rem' }}>
                 KPK bersifat <GlossaryTerm word="Independen">Independen</GlossaryTerm> dan bebas dari pengaruh kekuasaan mana pun dalam melaksanakan tugas dan wewenangnya, menjamin keadilan yang setara di mata hukum tanpa intervensi eksekutif atau legislatif.
               </p>
@@ -231,19 +232,21 @@ export default function KPKSection() {
           >
             {/* Kewenangan 1 */}
             <motion.div
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -4 }}
               style={{
                 backgroundColor: 'var(--color-surface)',
                 border: '1px solid var(--color-border)',
                 padding: '24px',
                 borderRadius: 'var(--border-radius-md)',
-                boxShadow: '0 4px 12px rgba(45,37,36,0.02)'
+                boxShadow: '0 4px 12px rgba(45,37,36,0.02)',
+                transition: 'transform 0.1s, box-shadow 0.1s'
               }}
             >
-              <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🎙️</div>
-              <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                Penyadapan Tanpa Izin Pengadilan
-              </h5>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '0px', color: 'var(--color-primary)' }}>
+                  Penyadapan Tanpa Izin Pengadilan
+                </h5>
+              </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: 0 }}>
                 KPK memiliki wewenang menyadap komunikasi terduga koruptor tanpa harus menunggu izin tertulis dari ketua pengadilan negeri—menjamin kecepatan penyidikan dan keberhasilan <GlossaryTerm word="OTT">Operasi Tangkap Tangan (OTT)</GlossaryTerm>.
               </p>
@@ -251,19 +254,21 @@ export default function KPKSection() {
 
             {/* Kewenangan 2 */}
             <motion.div
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -4 }}
               style={{
                 backgroundColor: 'var(--color-surface)',
                 border: '1px solid var(--color-border)',
                 padding: '24px',
                 borderRadius: 'var(--border-radius-md)',
-                boxShadow: '0 4px 12px rgba(45,37,36,0.02)'
+                boxShadow: '0 4px 12px rgba(45,37,36,0.02)',
+                transition: 'transform 0.1s, box-shadow 0.1s'
               }}
             >
-              <div style={{ fontSize: '2rem', marginBottom: '12px' }}>🚫</div>
-              <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                Tidak Bisa Menerbitkan <GlossaryTerm word="SP3">SP3</GlossaryTerm>
-              </h5>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '0px', color: 'var(--color-primary)' }}>
+                  Tidak Bisa Menerbitkan <GlossaryTerm word="SP3">SP3</GlossaryTerm>
+                </h5>
+              </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: 0 }}>
                 Sejak berdirinya, KPK dilarang keras menghentikan proses penyidikan atau menerbitkan <GlossaryTerm word="SP3">SP3</GlossaryTerm>. Setiap tersangka yang diumumkan KPK wajib dibawa hingga persidangan, mencegah celah penyuapan di bawah meja.
               </p>
@@ -271,19 +276,21 @@ export default function KPKSection() {
 
             {/* Kewenangan 3 */}
             <motion.div
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -4 }}
               style={{
                 backgroundColor: 'var(--color-surface)',
                 border: '1px solid var(--color-border)',
                 padding: '24px',
                 borderRadius: 'var(--border-radius-md)',
-                boxShadow: '0 4px 12px rgba(45,37,36,0.02)'
+                boxShadow: '0 4px 12px rgba(45,37,36,0.02)',
+                transition: 'transform 0.1s, box-shadow 0.1s'
               }}
             >
-              <div style={{ fontSize: '2rem', marginBottom: '12px' }}>⚡</div>
-              <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                Ambil Alih Kasus (Supervisi)
-              </h5>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
+                <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '0px', color: 'var(--color-primary)' }}>
+                  Ambil Alih Kasus (Supervisi)
+                </h5>
+              </div>
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-muted)', margin: 0 }}>
                 KPK berhak sepenuhnya mengambil alih penyelidikan korupsi yang sedang ditangani oleh Kepolisian atau Kejaksaan Agung apabila penanganannya berlarut-larut atau diduga mengandung konflik kepentingan.
               </p>

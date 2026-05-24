@@ -5,7 +5,8 @@ import SplitText from './ui/SplitText'
 export default function ReferensiSection() {
   const referensiData = [
     {
-      title: '📄 Situs Resmi Pemerintah',
+      title: 'Situs Resmi Pemerintah',
+      icon: 'document',
       content: (
         <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <li>
@@ -24,7 +25,8 @@ export default function ReferensiSection() {
       )
     },
     {
-      title: '📰 Berita & Portal Artikel Publik',
+      title: 'Berita & Portal Artikel Publik',
+      icon: 'newspaper',
       content: (
         <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <li>
@@ -40,53 +42,53 @@ export default function ReferensiSection() {
             — Kilas balik kasus suap proyek P3SON Hambalang Anas Urbaningrum.
           </li>
           <li>
-            <a href="https://www.cnnindonesia.com/nasional/20211125204418-12-726228/penjelasan-ahli-soal-putusan-mk-uu-ciptaker-inkonstitusional-bersyarat" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
-              cnnindonesia.com
-            </a>{' '}
-            — Penjelasan ahli atas Putusan Mahkamah Konstitusi tentang UU Cipta Kerja.
-          </li>
-          <li>
-            <a href="https://aji.or.id/informasi/mahkamah-konstitusi-indonesia-batalkan-pasal-berita-bohong-dan-pencemaran-nama-baik-di" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
-              aji.or.id
-            </a>{' '}
-            — Mahkamah Konstitusi membatalkan pasal karet tentang penyebaran berita bohong.
-          </li>
-          <li>
             <a href="https://www.liputan6.com/news/read/3026241/3-ketua-lembaga-tinggi-negara-yang-terjerat-kasus-korupsi" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
               liputan6.com
             </a>{' '}
             — Dokumentasi penangkapan Ketua MK Akil Mochtar melalui OTT KPK.
           </li>
           <li>
-            <a href="https://fahum.umsu.ac.id/info/kasus-terbesar-yang-ditangani-oleh-kpk-di-indonesia/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
-              fahum.umsu.ac.id
+            <a href="https://www.bbc.com/indonesia/berita_indonesia/2014/07/140716_bankcentury_101" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
+              bbc.com
             </a>{' '}
-            — Ringkasan penanganan kasus mega korupsi Century dan bantuan BLBI.
+            — Analisis mendalam tentang kasus bailout Bank Century.
+          </li>
+          <li>
+            <a href="https://www.metrotvnews.com/read/NQACq1n6-mengenal-sejarah-blbi-sebagai-bagian-dari-skandal-terbesar-indonesia" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
+              metrotvnews.com
+            </a>{' '}
+            — Ringkasan penanganan kasus mega korupsi BLBI.
+          </li>
+          <li>
+            <a href="https://www.hukumonline.com/berita/a/mk-batalkan-uu-sumber-daya-air-lt54e4bd8e5dc0a/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
+              hukumonline.com
+            </a>{' '}
+            — Putusan MK tentang pembatalan UU Sumber Daya Air.
+          </li>
+          <li>
+            <a href="https://igj.or.id/2023/12/09/mk-putuskan-uu-cipta-kerja-cacat-formil-dan-inkonstitusional-2/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
+              igj.or.id
+            </a>{' '}
+            — Analisis Putusan MK tentang UU Cipta Kerja.
+          </li>
+          <li>
+            <a href="https://aji.or.id/informasi/mahkamah-konstitusi-indonesia-batalkan-pasal-berita-bohong-dan-pencemaran-nama-baik-di" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
+              aji.or.id
+            </a>{' '}
+            — Mahkamah Konstitusi membatalkan pasal berita bohong.
+          </li>
+          <li>
+            <a href="https://www.mkri.id/berita/putusan-mk-soal-batas-usia-capres-cawapres-final-dan-mengikat-19979" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
+              mkri.id
+            </a>{' '}
+            — Putusan MK tentang batas usia Capres/Cawapres.
           </li>
         </ul>
       )
     },
     {
-      title: '📚 Jurnal & Naskah Akademik',
-      content: (
-        <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <li>
-            <a href="https://journal.unilak.ac.id/index.php/nia/article/download/27395/7715" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
-              journal.unilak.ac.id
-            </a>{' '}
-            — Analisis Putusan Mahkamah Konstitusi terhadap Undang-Undang Sumber Daya Air.
-          </li>
-          <li>
-            <a href="https://www.amnesty.id" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
-              amnesty.id
-            </a>{' '}
-            — Rekomendasi pembatasan pasal pencemaran nama baik UU ITE demi kemerdekaan berpendapat.
-          </li>
-        </ul>
-      )
-    },
-    {
-      title: '📊 Data & Lembaga Statistik',
+      title: 'Data & Lembaga Statistik',
+      icon: 'chart',
       content: (
         <ul style={{ paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           <li>
@@ -94,12 +96,6 @@ export default function ReferensiSection() {
               Transparency International
             </a>{' '}
             — Indeks Persepsi Korupsi (Corruption Perceptions Index / CPI) Indonesia sejak 1995.
-          </li>
-          <li>
-            <a href="https://pajak.go.id" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', fontWeight: '600' }}>
-              pajak.go.id
-            </a>{' '}
-            — Rekapitulasi amandemen batasan usia kandidat pemilu presiden.
           </li>
         </ul>
       )

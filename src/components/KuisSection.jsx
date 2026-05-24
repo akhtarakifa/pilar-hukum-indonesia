@@ -191,17 +191,17 @@ export default function KuisSection() {
                       
                       let btnBg = 'var(--color-surface-alt)'
                       let btnBorder = 'var(--color-border)'
-                      let icon = ''
+                      let iconSvg = null
                       
                       if (answered) {
                         if (isCorrectAnswer) {
                           btnBg = '#e8f5e9' // green background
                           btnBorder = '#4caf50'
-                          icon = ' ✓'
+                          iconSvg = 'check'
                         } else if (isSelected) {
                           btnBg = '#ffebee' // red background
                           btnBorder = '#f44336'
-                          icon = ' ✗'
+                          iconSvg = 'x'
                         }
                       }
 
@@ -244,10 +244,17 @@ export default function KuisSection() {
                           }}
                         >
                           <span>{option}</span>
-                          {icon && (
-                            <span style={{ fontWeight: '700', color: isCorrectAnswer ? '#4caf50' : '#f44336', fontSize: '1.1rem' }}>
-                              {icon}
-                            </span>
+                          {iconSvg && (
+                            iconSvg === 'check' ? (
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4caf50" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <polyline points="20 6 9 17 4 12"/>
+                              </svg>
+                            ) : (
+                              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f44336" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"/>
+                                <line x1="6" y1="6" x2="18" y2="18"/>
+                              </svg>
+                            )
                           )}
                         </motion.button>
                       )
@@ -268,10 +275,14 @@ export default function KuisSection() {
                         fontSize: '0.85rem'
                       }}
                     >
-                      <strong style={{ display: 'block', color: 'var(--color-accent)', marginBottom: '4px' }}>
-                        💡 Penjelasan:
-                      </strong>
-                      <span style={{ color: 'var(--color-text-muted)' }}>{q.penjelasan}</span>
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                        <div>
+                          <strong style={{ display: 'block', color: 'var(--color-accent)', marginBottom: '4px' }}>
+                            Penjelasan:
+                          </strong>
+                          <span style={{ color: 'var(--color-text-muted)' }}>{q.penjelasan}</span>
+                        </div>
+                      </div>
                     </motion.div>
                   )}
 
@@ -318,8 +329,25 @@ export default function KuisSection() {
                   transition={{ duration: 0.5, type: 'spring' }}
                   style={{ textAlign: 'center' }}
                 >
-                  <div style={{ fontSize: '4rem', marginBottom: '16px' }}>
-                    {score === 5 ? '🏆' : score >= 3 ? '🎉' : '📚'}
+                  <div style={{ marginBottom: '16px' }}>
+                    {score === 5 ? (
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="var(--color-primary)" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M13 15l3 3L22 7"/>
+                        <path d="M7 12l3 3 7-7"/>
+                      </svg>
+                    ) : score >= 3 ? (
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="var(--color-primary)" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                        <path d="M10 17l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                      </svg>
+                    ) : (
+                      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+                        <path d="M6 6h10"/>
+                        <path d="M6 10h10"/>
+                        <path d="M6 14h10"/>
+                      </svg>
+                    )}
                   </div>
                   <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', marginBottom: '8px' }}>
                     Kuis Selesai!
@@ -370,7 +398,12 @@ export default function KuisSection() {
                       e.currentTarget.style.backgroundColor = 'var(--color-accent)';
                     }}
                   >
-                    Ulangi Kuis 🔄
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '8px', display: 'inline' }}>
+                      <polyline points="23 4 23 10 17 10"/>
+                      <polyline points="1 20 1 14 7 14"/>
+                      <path d="M3.51 9a9 9 0 0 1 14.85-3.36M20.49 15a9 9 0 0 1-14.85 3.36"/>
+                    </svg>
+                    Ulangi Kuis
                   </button>
                 </motion.div>
               )}

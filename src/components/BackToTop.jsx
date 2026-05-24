@@ -28,12 +28,11 @@ export default function BackToTop() {
       {visible && (
         <motion.button
           onClick={scrollToTop}
-          initial={{ opacity: 0, scale: 0.5, rotate: -180 }}
-          animate={{ opacity: 1, scale: 1, rotate: 0 }}
-          exit={{ opacity: 0, scale: 0.5, rotate: 180 }}
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
           whileHover={{ 
             scale: 1.15,
-            rotate: 360,
             backgroundColor: 'var(--color-accent)'
           }}
           transition={{ type: 'spring', stiffness: 200, damping: 15 }}
@@ -57,7 +56,7 @@ export default function BackToTop() {
             outline: 'none'
           }}
         >
-          ▲
+          ↑
         </motion.button>
       )}
     </AnimatePresence>

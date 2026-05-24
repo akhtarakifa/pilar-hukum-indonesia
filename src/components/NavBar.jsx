@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from 'motion/react'
 export default function NavBar() {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
-  const [logoText, setLogoText] = useState('Pilar Hukum')
 
   const navLinks = [
     { href: '#pengantar', label: 'Pengantar' },
@@ -29,32 +28,19 @@ export default function NavBar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Text Scramble Effect for Logo on Hover
-  const handleLogoHover = () => {
-    const original = 'Pilar Hukum'
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-    let iterations = 0
-    
-    const interval = setInterval(() => {
-      setLogoText(original.split('').map((char, index) => {
-        if (char === ' ') return ' '
-        if (index < iterations) return original[index]
-        return chars[Math.floor(Math.random() * chars.length)]
-      }).join(''))
-
-      iterations += 1/2
-      if (iterations >= original.length) {
-        clearInterval(interval)
-        setLogoText(original)
-      }
-    }, 30)
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault()
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
     <>
       <motion.nav
         animate={{
-          backgroundColor: scrolled ? 'var(--color-background)' : 'rgba(45,37,36,0.15)',
+          backgroundColor: scrolled ? 'var(--color-background)' : 'rgba(255,255,255,0)',
           boxShadow: scrolled ? '0 1px 12px rgba(0,0,0,0.08)' : 'none',
           backdropFilter: scrolled ? 'blur(10px)' : 'none'
         }}
@@ -70,14 +56,14 @@ export default function NavBar() {
           justifyContent: 'space-between',
           padding: '0 40px',
           zIndex: 999,
-          borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid rgba(255,255,255,0.1)'
+          borderBottom: scrolled ? '1px solid var(--color-border)' : 'none'
         }}
       >
         {/* Logo */}
         <a
-          href="#hero"
+          href="#"
+          onClick={(e) => handleNavClick(e, 'hero')}
           style={{ textDecoration: 'none' }}
-          onMouseEnter={handleLogoHover}
         >
           <motion.span
             style={{
@@ -90,7 +76,7 @@ export default function NavBar() {
               display: 'inline-block'
             }}
           >
-            {logoText}
+            Pilar Hukum
           </motion.span>
         </a>
 
@@ -109,7 +95,8 @@ export default function NavBar() {
           {navLinks.map((link) => (
             <li key={link.href} style={{ position: 'relative' }}>
               <a
-                href={link.href}
+                href="#"
+                onClick={(e) => handleNavClick(e, link.href.slice(1))}
                 style={{
                   textDecoration: 'none',
                   color: scrolled ? 'var(--color-text)' : '#ffffff',
@@ -241,8 +228,11 @@ export default function NavBar() {
                   }}
                 >
                   <a
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    href="#"
+                    onClick={(e) => {
+                      handleNavClick(e, link.href.slice(1))
+                      setIsOpen(false)
+                    }}
                     style={{
                       fontFamily: 'var(--font-heading)',
                       fontSize: '2rem',

@@ -26,7 +26,7 @@ export default function Badge({ children, variant = 'primary', className = '' })
         display: 'inline-flex',
         alignItems: 'center',
         padding: '4px 10px',
-        borderRadius: '20px',
+        borderRadius: '4px',
         fontSize: '0.75rem',
         fontWeight: '600',
         fontFamily: 'var(--font-mono)',

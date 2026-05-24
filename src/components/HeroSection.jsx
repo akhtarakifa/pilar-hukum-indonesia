@@ -297,7 +297,7 @@ export default function HeroSection() {
                   fontFamily: 'var(--font-heading)',
                   fontSize: '2.5rem',
                   fontWeight: '700',
-                  color: 'var(--color-primary)',
+                  color: 'var(--color-background)',
                   marginBottom: '8px',
                   display: 'flex',
                   alignItems: 'baseline',

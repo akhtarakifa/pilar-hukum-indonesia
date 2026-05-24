@@ -40,7 +40,7 @@ export default function PengantarSection() {
               fontStyle: 'italic'
             }}
           >
-            "Kejatuhan Orde Baru pada tahun 1998 menyisakan krisis kepercayaan publik yang mendalam. Korupsi yang sistemis dan kekuasaan tanpa kontrol konstitusional melahirkan tuntutan bersejarah untuk mendirikan institusi independen yang tangguh: <GlossaryTerm word="KPK">Komisi Pemberantasan Korupsi (KPK)</GlossaryTerm> dan <GlossaryTerm word="Judicial Review">Mahkamah Konstitusi (MK)</GlossaryTerm>."
+            "Kejatuhan Orde Baru pada tahun 1998 menyisakan krisis kepercayaan publik yang mendalam. Korupsi yang sistemis dan kekuasaan tanpa kontrol konstitusional melahirkan tuntutan bersejarah untuk mendirikan institusi independen yang tangguh: <GlossaryTerm word="KPK">Komisi Pemberantasan Korupsi (KPK)</GlossaryTerm> dan <GlossaryTerm word="MK">Mahkamah Konstitusi (MK)</GlossaryTerm>."
           </motion.p>
         </div>
 
@@ -128,12 +128,14 @@ export default function PengantarSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, type: 'spring' }}
+            whileHover={{ y: -8 }}
             style={{
               backgroundColor: 'var(--color-surface-alt)',
               borderLeft: '4px solid var(--color-primary)',
               padding: '32px',
               borderRadius: '0 var(--border-radius-lg) var(--border-radius-lg) 0',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
+              boxShadow: '0 4px 16px rgba(0,0,0,0.02)',
+              transition: 'transform 0.2s, box-shadow 0.2s'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
@@ -157,12 +159,14 @@ export default function PengantarSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, type: 'spring' }}
+            whileHover={{ y: -8 }}
             style={{
               backgroundColor: 'var(--color-surface-alt)',
               borderLeft: '4px solid var(--color-primary)',
               padding: '32px',
               borderRadius: '0 var(--border-radius-lg) var(--border-radius-lg) 0',
-              boxShadow: '0 4px 16px rgba(0,0,0,0.02)'
+              boxShadow: '0 4px 16px rgba(0,0,0,0.02)',
+              transition: 'transform 0.2s, box-shadow 0.2s'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>

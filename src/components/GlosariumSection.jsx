@@ -93,8 +93,7 @@ export default function GlosariumSection() {
                   padding: '24px',
                   borderRadius: 'var(--border-radius-md)',
                   borderLeft: '3px solid var(--color-primary)',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.01)',
-                  transition: 'transform 0.2s, box-shadow 0.2s'
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.01)'
                 }}
               >
                 <h4
@@ -119,26 +118,6 @@ export default function GlosariumSection() {
             Tidak ada kata kunci "{search}" yang ditemukan. Silakan cari istilah lainnya.
           </div>
         )}
-
-        {/* HINT BANNER */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          style={{
-            marginTop: '60px',
-            textAlign: 'center',
-            backgroundColor: 'var(--color-surface-alt)',
-            padding: '16px 24px',
-            borderRadius: 'var(--border-radius-md)',
-            border: '1px dashed var(--color-border)',
-            fontSize: '0.85rem',
-            color: 'var(--color-text-muted)'
-          }}
-        >
-          💡 <strong>Tips Pembaca:</strong> Arahkan kursor mouse kamu ke kata kunci berwarna merah yang memiliki garis bawah putus-putus di seluruh teks website ini untuk langsung memunculkan kartu penjelas glosarium secara instan!
-        </motion.div>
 
       </div>
     </section>

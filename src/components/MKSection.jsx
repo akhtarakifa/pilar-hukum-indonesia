@@ -7,8 +7,7 @@ import Badge from './ui/Badge'
 import KasusCard from './ui/KasusCard'
 import Accordion from './ui/Accordion'
 import DonutChart from './ui/DonutChart'
-import SplitText from './ui/SplitText'
-import GlossaryTerm from './ui/GlossaryTerm'
+import Timeline from './ui/Timeline'
 
 export default function MKSection() {
   const counterRef = useRef(null)
@@ -159,7 +158,7 @@ export default function MKSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <Badge variant="outline" style={{ marginBottom: '12px' }}>Amanat Amendemen UUD 1945</Badge>
+            <Badge variant="fill" style={{ marginBottom: '12px' }}>Amanat Amendemen UUD 1945</Badge>
             <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', marginBottom: '16px' }}>
               Sang Penjaga Konstitusi (The Guardian of Constitution)
             </h3>
@@ -201,9 +200,15 @@ export default function MKSection() {
                 marginTop: '20px'
               }}
             >
-              <strong style={{ display: 'block', color: 'var(--color-accent)', marginBottom: '16px', fontSize: '0.9rem' }}>
-                ⚖️ Pembagian 9 Hakim Konstitusi:
-              </strong>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                {/* SVG Icon - Scale */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v20M2 12h20M6 6l12 12M18 6l-12 12"/>
+                </svg>
+                <strong style={{ color: 'var(--color-accent)' }}>
+                  Pembagian 9 Hakim Konstitusi:
+                </strong>
+              </div>
               
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {/* 3 MA */}
@@ -251,31 +256,36 @@ export default function MKSection() {
           </motion.div>
         </div>
 
-        {/* ALUR BERPERKARA DI MK (HORIZONTAL INFOGRAPHIC STEPS) */}
+        {/* ALUR BERPERKARA DI MK (HORIZONTAL TIMELINE) */}
         <div style={{ marginBottom: '100px' }}>
           <h4 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', textAlign: 'center', marginBottom: '40px' }}>
             Alur Berperkara / Uji Undang-Undang di MK
           </h4>
           
-          <div className="alur-container">
-            {alurMK.map((step, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
-                className="alur-step-card"
-              >
-                <div className="step-num">{step.num}</div>
-                <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '8px', color: 'var(--color-primary)' }}>
-                  {step.title}
-                </h5>
-                <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', margin: 0, lineHeight: '1.5' }}>
-                  {step.desc}
-                </p>
-              </motion.div>
-            ))}
+          <div style={{ overflowX: 'auto', paddingBottom: '20px' }}>
+            <div className="horizontal-timeline-container">
+              {alurMK.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.15 }}
+                  className="horizontal-timeline-item"
+                >
+                  <div className="timeline-dot" />
+                  <div className="timeline-content">
+                    <div className="step-num">{step.num}</div>
+                    <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.1rem', marginBottom: '8px', color: 'var(--color-primary)' }}>
+                      {step.title}
+                    </h5>
+                    <p style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', margin: 0, lineHeight: '1.5' }}>
+                      {step.desc}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -326,11 +336,6 @@ export default function MKSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           style={{
-            backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-border)',
-            padding: '30px',
-            borderRadius: 'var(--border-radius-lg)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.02)',
             marginBottom: '80px'
           }}
         >
@@ -367,38 +372,110 @@ export default function MKSection() {
 
       {/* Styled Responsive Alur CSS */}
       <style>{`
-        .alur-container {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 24px;
+        .horizontal-timeline-container {
+          display: flex;
+          gap: 20px;
           position: relative;
+          padding: 40px 20px;
+          min-width: min-content;
+          align-items: flex-start;
         }
-        .alur-step-card {
-          background-color: var(--color-surface);
-          border: 1px solid var(--color-border);
-          padding: 24px;
-          border-radius: var(--border-radius-md);
-          box-shadow: 0 4px 12px rgba(45,37,36,0.02);
+
+        .horizontal-timeline-container::before {
+          content: '';
+          position: absolute;
+          top: 40px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: linear-gradient(to right, var(--color-border) 0%, var(--color-border) calc(100% - 40px), transparent 100%);
+          z-index: 1;
+        }
+
+        .horizontal-timeline-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          min-width: 200px;
           position: relative;
           z-index: 2;
         }
+
+        .timeline-dot {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          background-color: var(--color-primary);
+          margin-bottom: 20px;
+          position: relative;
+          z-index: 3;
+          box-shadow: 0 0 0 4px var(--color-surface), 0 0 0 6px var(--color-border);
+        }
+
+        .timeline-content {
+          background-color: var(--color-surface);
+          border: 1px solid var(--color-border);
+          padding: 20px;
+          border-radius: var(--border-radius-md);
+          box-shadow: 0 4px 12px rgba(45,37,36,0.02);
+          text-align: center;
+          width: 100%;
+        }
+
         .step-num {
           font-family: var(--font-mono);
-          font-size: 2.2rem;
+          font-size: 1.8rem;
           font-weight: 700;
           color: rgba(114, 24, 24, 0.15);
           line-height: 1;
           margin-bottom: 12px;
         }
+
         @media (max-width: 992px) {
-          .alur-container {
-            grid-template-columns: 1fr 1fr !important;
+          .horizontal-timeline-container {
+            gap: 16px;
+            padding: 30px 16px;
+          }
+
+          .horizontal-timeline-item {
+            min-width: 160px;
+          }
+
+          .timeline-content {
+            padding: 16px;
+          }
+
+          .step-num {
+            font-size: 1.4rem;
           }
         }
+
         @media (max-width: 576px) {
-          .alur-container {
-            grid-template-columns: 1fr !important;
+          .horizontal-timeline-container {
+            gap: 12px;
+            padding: 24px 12px;
           }
+
+          .horizontal-timeline-item {
+            min-width: 140px;
+          }
+
+          .timeline-content {
+            padding: 12px;
+          }
+
+          .timeline-content h5 {
+            font-size: 0.9rem !important;
+          }
+
+          .timeline-content p {
+            font-size: 0.7rem !important;
+          }
+
+          .step-num {
+            font-size: 1.2rem;
+          }
+
           .date-counter-split {
             border-right: none !important;
             border-bottom: 1px solid var(--color-border);

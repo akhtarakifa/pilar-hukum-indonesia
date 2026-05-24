@@ -5,28 +5,22 @@ import SplitText from './ui/SplitText'
 export default function TimSection() {
   const anggotaTim = [
     {
-      nama: 'Akhtar Akifa Sakhi',
+      nama: 'Aditya Arfriansyah',
       nis: 'NIS. 22.11.0801',
       peran: 'Ketua & Peneliti Utama',
       inisial: 'AA'
     },
     {
-      nama: 'Muhammad Fathurrahman',
+      nama: 'Akhtar Akifa Sakhi',
       nis: 'NIS. 22.11.0802',
       peran: 'Penulis Konten Sejarah',
       inisial: 'MF'
     },
     {
-      nama: 'Rayhan Dwi Prasetyo',
+      nama: 'Banoe Izdihar Tsuraya',
       nis: 'NIS. 22.11.0803',
       peran: 'Desainer & Developer',
       inisial: 'RD'
-    },
-    {
-      nama: 'Clarissa Amanta Putri',
-      nis: 'NIS. 22.11.0804',
-      peran: 'Editor & Pengumpul Data',
-      inisial: 'CA'
     }
   ]
 
@@ -72,7 +66,8 @@ export default function TimSection() {
                 boxShadow: '0 4px 16px rgba(45,37,36,0.02)',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center'
+                alignItems: 'center',
+                transition: 'transform 0.2s, box-shadow 0.2s'
               }}
             >
               {/* Initials Avatar */}

@@ -1,11 +1,8 @@
 import { useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'motion/react'
-import ImageWithSkeleton from './ImageWithSkeleton'
-import Badge from './Badge'
 
 export default function KasusCard({ data, type = 'kpk' }) {
   const cardRef = useRef(null)
-  const [showVideo, setShowVideo] = useState(false)
   const [shineStyle, setShineStyle] = useState({ opacity: 0 })
 
   // 3D Tilt motion values
@@ -79,69 +76,14 @@ export default function KasusCard({ data, type = 'kpk' }) {
 
       {/* Card Header Media */}
       <div style={{ height: '200px', width: '100%', position: 'relative', overflow: 'hidden' }}>
-        {showVideo ? (
-          <iframe
-            src={data.video}
-            title={data.judul}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            style={{ width: '100%', height: '100%', display: 'block', position: 'relative', zIndex: 4 }}
-          />
-        ) : (
-          <>
-            <ImageWithSkeleton src={data.foto} alt={data.judul} />
-            <div
-              style={{
-                position: 'absolute',
-                top: '12px',
-                left: '12px',
-                zIndex: 2
-              }}
-            >
-              <Badge variant="accent">
-                {type === 'kpk' ? `Tahun ${data.tahun}` : data.nomorPutusan}
-              </Badge>
-            </div>
-            
-            {/* Play Button Overlay */}
-            {data.video && (
-              <button
-                onClick={() => setShowVideo(true)}
-                style={{
-                  position: 'absolute',
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)',
-                  background: 'rgba(114, 24, 24, 0.85)',
-                  border: 'none',
-                  borderRadius: '50%',
-                  width: '50px',
-                  height: '50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  color: 'white',
-                  fontSize: '1.2rem',
-                  transition: 'all 0.3s',
-                  zIndex: 2,
-                  boxShadow: '0 4px 10px rgba(0,0,0,0.3)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-primary)';
-                  e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(114, 24, 24, 0.85)';
-                  e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.0)';
-                }}
-              >
-                ▶
-              </button>
-            )}
-          </>
-        )}
+        <iframe
+          src={data.video}
+          title={data.judul}
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ width: '100%', height: '100%', display: 'block', position: 'relative', zIndex: 4 }}
+        />
       </div>
 
       {/* Card Content */}
@@ -158,29 +100,23 @@ export default function KasusCard({ data, type = 'kpk' }) {
           {data.judul}
         </h3>
 
-        {/* Case Metadata */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '16px', fontSize: '0.85rem' }}>
-          {type === 'kpk' ? (
-            <>
-              <div>
-                <span style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>Tersangka:</span>{' '}
-                <strong style={{ color: 'var(--color-accent)' }}>{data.tersangka}</strong>
-              </div>
-              {data.kerugian && (
-                <div>
-                  <span style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>Kerugian Negara:</span>{' '}
-                  <strong style={{ color: 'var(--color-primary)' }}>{data.kerugian}</strong>
-                </div>
-              )}
-            </>
-          ) : (
-            <>
-              <div>
-                <span style={{ color: 'var(--color-text-muted)', fontFamily: 'var(--font-mono)' }}>Tahun Putusan:</span>{' '}
-                <strong style={{ color: 'var(--color-accent)' }}>{data.tahun}</strong>
-              </div>
-            </>
-          )}
+        {/* Badge */}
+        <div
+          style={{
+            display: 'inline-block',
+            backgroundColor: 'rgba(114, 24, 24, 0.1)',
+            color: 'var(--color-primary)',
+            padding: '4px 10px',
+            borderRadius: '4px',
+            fontSize: '0.75rem',
+            fontFamily: 'var(--font-mono)',
+            fontWeight: '600',
+            letterSpacing: '0.05em',
+            marginBottom: '16px',
+            width: 'fit-content'
+          }}
+        >
+          {type === 'kpk' ? `Tahun ${data.tahun}` : data.nomorPutusan}
         </div>
 
         {/* Description */}
@@ -243,34 +179,22 @@ export default function KasusCard({ data, type = 'kpk' }) {
               borderRadius: 'var(--border-radius-sm)',
               fontSize: '0.85rem',
               marginBottom: '20px',
-              border: '1px dashed var(--color-border)'
+              border: '1px dashed var(--color-border)',
+              display: 'flex',
+              gap: '12px'
             }}
           >
-            <strong style={{ display: 'block', color: 'var(--color-accent)', marginBottom: '4px' }}>
-              ⚡ Dampak Langsung:
-            </strong>
-            <span style={{ color: 'var(--color-text)' }}>{data.dampakLangsung}</span>
+            <div>
+              <strong style={{ display: 'block', color: 'var(--color-accent)', marginBottom: '4px' }}>
+                Dampak Langsung:
+              </strong>
+              <span style={{ color: 'var(--color-text)' }}>{data.dampakLangsung}</span>
+            </div>
           </div>
         )}
 
         {/* Footer Link */}
-        <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          {showVideo && (
-            <button
-              onClick={() => setShowVideo(false)}
-              style={{
-                background: 'none',
-                border: 'none',
-                color: 'var(--color-primary)',
-                cursor: 'pointer',
-                fontSize: '0.85rem',
-                fontWeight: '600',
-                padding: 0
-              }}
-            >
-              ← Kembali ke Foto
-            </button>
-          )}
+        <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'flex-end' }}>
           <a
             href={data.sumber}
             target="_blank"
@@ -282,8 +206,7 @@ export default function KasusCard({ data, type = 'kpk' }) {
               textDecoration: 'none',
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '4px',
-              marginLeft: 'auto'
+              gap: '4px'
             }}
             onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--color-accent)')}
             onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--color-primary)')}

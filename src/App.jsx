@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence, useScroll } from 'motion/react'
 
 // Components
-import CustomCursor from './components/CustomCursor'
 import LoadingScreen from './components/LoadingScreen'
 import NavBar from './components/NavBar'
 import HeroSection from './components/HeroSection'
@@ -33,9 +32,6 @@ export default function App() {
     <>
       {/* Noise Texture Overlay */}
       <div className="grain-overlay" />
-
-      {/* Custom Cursor */}
-      <CustomCursor />
 
       {/* Loading Screen Overlay */}
       <AnimatePresence mode="wait">

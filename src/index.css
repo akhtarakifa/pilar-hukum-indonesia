@@ -118,15 +118,7 @@ section.alt-bg {
   z-index: 9999;
 }
 
-/* Custom Cursor Styles */
-.cursor-dot, .cursor-ring {
-  display: block;
-}
-@media (max-width: 1024px) {
-  .cursor-dot, .cursor-ring {
-    display: none !important;
-  }
-}
+
 
 /* Button & interactive components */
 .btn-primary {

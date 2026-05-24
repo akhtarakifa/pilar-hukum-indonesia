@@ -6,17 +6,17 @@ import GlossaryTerm from './ui/GlossaryTerm'
 export default function DampakSection() {
   const dampakCards = [
     {
-      icon: '🏛️',
+      icon: 'building',
       title: 'Pemberantasan Korupsi',
       desc: 'Membongkar mega-skandal korupsi politik yang sebelumnya mustahil disentuh hukum, menetapkan standar baru akuntabilitas pejabat negara, serta memulihkan triliunan rupiah uang rakyat ke kas negara.'
     },
     {
-      icon: '📜',
+      icon: 'document',
       title: 'Supremasi Konstitusi',
       desc: 'Melindungi hak-hak dasar konstitusional warga dari potensi penyalahgunaan kekuasaan pembuat undang-undang, membatalkan regulasi diskriminatif, dan menegakkan supremasi hukum tertinggi di Indonesia.'
     },
     {
-      icon: '🤝',
+      icon: 'handshake',
       title: 'Fondasi Demokrasi',
       desc: 'Menstabilkan transisi demokrasi pasca-kejatuhan otoritarianisme, memutus lingkar setan korupsi sistemik, serta memastikan sengketa pemilu diselesaikan di meja hijau secara damai dan adil.'
     }
@@ -96,10 +96,34 @@ export default function DampakSection() {
                 padding: '32px',
                 borderRadius: 'var(--border-radius-lg)',
                 boxShadow: '0 4px 16px rgba(45,37,36,0.02)',
-                textAlign: 'center'
+                textAlign: 'center',
+                transition: 'transform 0.2s, box-shadow 0.2s'
               }}
             >
-              <div style={{ fontSize: '3rem', marginBottom: '16px' }}>{card.icon}</div>
+              <div style={{ marginBottom: '16px' }}>
+                {card.icon === 'building' && (
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    <polyline points="9 22 9 12 15 12 15 22"/>
+                  </svg>
+                )}
+                {card.icon === 'document' && (
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <line x1="12" y1="13" x2="12" y2="17"/>
+                    <line x1="9" y1="15" x2="15" y2="15"/>
+                  </svg>
+                )}
+                {card.icon === 'handshake' && (
+                  <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 12h-5v2h5v-2z"/>
+                    <path d="M7 12h5v2H7v-2z"/>
+                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                  </svg>
+                )}
+              </div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', marginBottom: '12px', color: 'var(--color-accent)' }}>
                 {card.title}
               </h3>
@@ -188,16 +212,17 @@ export default function DampakSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
+                whileHover={{ y: -8 }}
                 style={{
                   backgroundColor: 'var(--color-surface)',
                   border: '1px solid var(--color-border)',
                   padding: '24px',
                   borderRadius: 'var(--border-radius-md)',
-                  boxShadow: '0 4px 12px rgba(45,37,36,0.02)'
+                  boxShadow: '0 4px 12px rgba(45,37,36,0.02)',
+                  transition: 'transform 0.2s, box-shadow 0.2s'
                 }}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-                  <span style={{ fontSize: '1.2rem' }}>⚠️</span>
                   <h5 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.05rem', margin: 0, color: 'var(--color-primary)' }}>
                     {t.title}
                   </h5>

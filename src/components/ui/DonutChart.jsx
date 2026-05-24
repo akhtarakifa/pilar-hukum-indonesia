@@ -5,15 +5,19 @@ export default function DonutChart() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   const data = [
-    { label: 'Ditolak', value: 40, color: '#721818' },
-    { label: 'Dikabulkan', value: 30, color: '#a23939' },
-    { label: 'Tidak Diterima', value: 25, color: '#e1d9ce' },
-    { label: 'Gugur/Tarik', value: 5, color: '#2d2524' }
+    { label: 'Ditolak', value: 40, color: 'rgba(114, 24, 24, 0.1)' },
+    { label: 'Dikabulkan', value: 30, color: 'rgba(114, 24, 24, 0.1)' },
+    { label: 'Tidak Diterima', value: 25, color: 'rgba(114, 24, 24, 0.1)' },
+    { label: 'Gugur/Tarik', value: 5, color: 'rgba(114, 24, 24, 0.1)' }
   ]
 
   // SVG parameters
   const radius = 70
   const circumference = 2 * Math.PI * radius
+  
+  console.log('=== DONUT CHART DEBUG ===')
+  console.log('Radius:', radius)
+  console.log('Circumference:', circumference)
   
   // Calculate stroke offsets
   let accumulatedPercent = 0
@@ -51,12 +55,21 @@ export default function DonutChart() {
               cy="90"
               r={radius}
               fill="transparent"
-              stroke="var(--color-surface-alt)"
+              stroke="var(--color-primary)"
               strokeWidth="20"
             />
             {data.map((item, idx) => {
               const strokeLength = (item.value / 100) * circumference
               const strokeOffset = circumference - strokeLength - (accumulatedPercent / 100) * circumference
+              
+              console.log(`Segment ${idx} (${item.label}):`, {
+                value: item.value,
+                strokeLength: strokeLength.toFixed(2),
+                accumulatedPercent: accumulatedPercent,
+                strokeOffset: strokeOffset.toFixed(2),
+                expectedPercent: item.value
+              })
+              
               accumulatedPercent += item.value
 
               const isHovered = hoveredIndex === idx
@@ -69,7 +82,7 @@ export default function DonutChart() {
                   r={radius}
                   fill="transparent"
                   stroke={item.color}
-                  strokeWidth={isHovered ? 26 : 20}
+                  strokeWidth={isHovered ? 26 : 20} 
                   strokeDasharray={circumference}
                   initial={{ strokeDashoffset: circumference }}
                   whileInView={{ strokeDashoffset: strokeOffset }}
