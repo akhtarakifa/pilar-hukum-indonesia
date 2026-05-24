@@ -1,26 +1,26 @@
 import { motion } from 'motion/react'
 import Badge from './ui/Badge'
 import SplitText from './ui/SplitText'
+import { useState } from 'react'
 
 export default function TimSection() {
+  const [hoveredIdx, setHoveredIdx] = useState(null)
+
   const anggotaTim = [
     {
       nama: 'Aditya Arfriansyah',
-      nis: 'NIS. 22.11.0801',
-      peran: 'Ketua & Peneliti Utama',
-      inisial: 'AA'
+      nis: 'Presensi: 1',
+      peran: 'Ketua & Peneliti Utama'
     },
     {
       nama: 'Akhtar Akifa Sakhi',
-      nis: 'NIS. 22.11.0802',
-      peran: 'Penulis Konten Sejarah',
-      inisial: 'MF'
+      nis: 'Presensi 2',
+      peran: 'Project Manajer'
     },
     {
       nama: 'Banoe Izdihar Tsuraya',
-      nis: 'NIS. 22.11.0803',
-      peran: 'Desainer & Developer',
-      inisial: 'RD'
+      nis: 'Presensi 9',
+      peran: 'Desainer & Developer'
     }
   ]
 
@@ -37,7 +37,7 @@ export default function TimSection() {
             <SplitText text="Pilar Hukum Indonesia" />
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginTop: '8px', fontFamily: 'var(--font-heading)', fontStyle: 'italic' }}>
-            Siswa Kelas XI SIJA 1 — SMK Negeri 7 Semarang (2025)
+            Kelompok 4 - XI SIJA 1
           </p>
         </div>
 
@@ -46,7 +46,8 @@ export default function TimSection() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '30px'
+            gap: '60px',
+            padding: '40px 0'
           }}
         >
           {anggotaTim.map((m, idx) => (
@@ -56,52 +57,66 @@ export default function TimSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              whileHover={{ y: -8 }}
               style={{
-                backgroundColor: 'var(--color-background)',
-                border: '1px solid var(--color-border)',
-                borderRadius: 'var(--border-radius-lg)',
-                padding: '32px 24px',
                 textAlign: 'center',
-                boxShadow: '0 4px 16px rgba(45,37,36,0.02)',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
-                transition: 'transform 0.2s, box-shadow 0.2s'
+                alignItems: 'center'
               }}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(null)}
             >
-              {/* Initials Avatar */}
-              <div
+              {/* Avatar Image Placeholder */}
+              <motion.div
+                animate={{
+                  scale: hoveredIdx === idx ? 1.08 : 1
+                }}
+                transition={{ duration: 0.3 }}
                 style={{
-                  width: '80px',
-                  height: '80px',
+                  width: '140px',
+                  height: '140px',
                   borderRadius: '50%',
                   backgroundColor: 'var(--color-primary)',
-                  color: '#ffffff',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '1.8rem',
-                  fontWeight: '700',
-                  marginBottom: '20px',
-                  boxShadow: '0 4px 12px rgba(114, 24, 24, 0.2)'
+                  marginBottom: '24px',
+                  boxShadow: '0 8px 24px rgba(114, 24, 24, 0.15)',
+                  cursor: 'pointer',
+                  overflow: 'hidden'
                 }}
               >
-                {m.inisial}
-              </div>
+                {/* Placeholder - akan diganti dengan gambar */}
+                <img
+                  src={`/images/tim/tim-${idx + 1}.webp`}
+                  alt={m.nama}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                  }}
+                  onError={(e) => {
+                    e.target.style.display = 'none'
+                  }}
+                />
+              </motion.div>
 
-              {/* Name */}
-              <h4
+              {/* Name - Zoom on hover */}
+              <motion.h4
+                animate={{
+                  scale: hoveredIdx === idx ? 1.02 : 1
+                }}
+                transition={{ duration: 0.3 }}
                 style={{
                   fontFamily: 'var(--font-heading)',
-                  fontSize: '1.2rem',
+                  fontSize: '1.3rem',
                   color: 'var(--color-accent)',
-                  marginBottom: '6px'
+                  marginBottom: '6px',
+                  transformOrigin: 'center'
                 }}
               >
                 {m.nama}
-              </h4>
+              </motion.h4>
 
               {/* NIS */}
               <span
@@ -117,7 +132,7 @@ export default function TimSection() {
               </span>
 
               {/* Role Badge */}
-              <Badge variant="primary" style={{ marginTop: 'auto' }}>
+              <Badge variant="primary">
                 {m.peran}
               </Badge>
             </motion.div>
