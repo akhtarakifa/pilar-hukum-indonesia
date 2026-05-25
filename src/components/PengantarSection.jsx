@@ -127,7 +127,7 @@ export default function PengantarSection() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: 'spring' }}
+            transition={{ duration: 0.4, type: 'spring' }}
             whileHover={{ y: -8 }}
             style={{
               backgroundColor: 'var(--color-surface-alt)',
@@ -158,7 +158,7 @@ export default function PengantarSection() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, type: 'spring' }}
+            transition={{ duration: 0.4, type: 'spring' }}
             whileHover={{ y: -8 }}
             style={{
               backgroundColor: 'var(--color-surface-alt)',

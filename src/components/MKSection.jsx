@@ -87,7 +87,7 @@ export default function MKSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           style={{
-            height: '320px',
+            height: 'clamp(240px, 320px, 320px)',
             width: '100%',
             borderRadius: 'var(--border-radius-lg)',
             overflow: 'hidden',
@@ -97,7 +97,7 @@ export default function MKSection() {
           }}
         >
           <ImageWithSkeleton
-            src="https://images.unsplash.com/photo-1505664194779-8bebcb95c539?auto=format&fit=crop&q=80&w=1440"
+            src="/images/mk/desktop/MK_Picture.webp"
             alt="Gedung Mahkamah Konstitusi"
           />
           <div
@@ -426,7 +426,7 @@ export default function MKSection() {
           font-family: var(--font-mono);
           font-size: 1.8rem;
           font-weight: 700;
-          color: rgba(114, 24, 24, 0.15);
+          color: var(--color-accent);
           line-height: 1;
           margin-bottom: 12px;
         }

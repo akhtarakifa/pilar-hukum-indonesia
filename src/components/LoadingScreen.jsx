@@ -11,7 +11,7 @@ export default function LoadingScreen() {
         clipPath: 'inset(50% 0% 50% 0%)',
         opacity: 0
       }}
-      transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 2.7 }}
+      transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1], delay: 0.8 }}
       style={{
         position: 'fixed',
         inset: 0,
@@ -29,7 +29,7 @@ export default function LoadingScreen() {
       <motion.div
         initial={{ width: '0%' }}
         animate={{ width: '100%' }}
-        transition={{ duration: 2.6, ease: 'linear' }}
+        transition={{ duration: 0.7, ease: 'linear' }}
         style={{
           position: 'absolute',
           top: 0,
@@ -53,7 +53,7 @@ export default function LoadingScreen() {
           <motion.h1
             initial={{ y: 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: 0.8 }}
+            transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1], delay: 0.15 }}
             style={{
               fontFamily: 'var(--font-heading)',
               fontSize: '3.5rem',
@@ -71,7 +71,7 @@ export default function LoadingScreen() {
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.2 }}
+          transition={{ duration: 0.4, ease: 'easeInOut', delay: 0.05 }}
           style={{
             height: '2px',
             width: '280px',
@@ -86,7 +86,7 @@ export default function LoadingScreen() {
           <motion.h1
             initial={{ y: -80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1], delay: 1.1 }}
+            transition={{ duration: 0.4, ease: [0.25, 1, 0.5, 1], delay: 0.3 }}
             style={{
               fontFamily: 'var(--font-heading)',
               fontSize: '3.5rem',
@@ -107,7 +107,7 @@ export default function LoadingScreen() {
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5 + i * 0.05, duration: 0.3 }}
+              transition={{ delay: 0.45 + i * 0.02, duration: 0.15 }}
               style={{
                 fontFamily: 'var(--font-mono)',
                 fontSize: '1rem',
@@ -125,7 +125,7 @@ export default function LoadingScreen() {
         <motion.p
           initial={{ opacity: 0, letterSpacing: '0em' }}
           animate={{ opacity: 1, letterSpacing: '0.25em' }}
-          transition={{ duration: 0.8, delay: 2.0, ease: 'easeOut' }}
+          transition={{ duration: 0.4, delay: 0.65, ease: 'easeOut' }}
           style={{
             marginTop: '24px',
             fontFamily: 'var(--font-body)',

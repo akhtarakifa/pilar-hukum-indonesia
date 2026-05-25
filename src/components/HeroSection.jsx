@@ -64,7 +64,7 @@ export default function HeroSection() {
       <div
         id="hero"
         style={{
-          height: '100vh',
+          height: 'clamp(60vh, 100vh, 100vh)',
           width: '100%',
           display: 'flex',
           alignItems: 'center',
@@ -80,26 +80,23 @@ export default function HeroSection() {
             inset: 0,
             display: 'flex',
             y: bgY,
-            zIndex: 1
+            zIndex: 1,
+            backgroundImage: 'url("/images/hero/desktop/MK & KPK_Picture_Desktop.webp")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}
         >
           {/* Left Panel - KPK */}
           <div
             style={{
               flex: 1,
-              backgroundImage: 'url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
               borderRight: '1px solid rgba(255,255,255,0.1)'
             }}
           />
           {/* Right Panel - MK */}
           <div
             style={{
-              flex: 1,
-              backgroundImage: 'url("https://images.unsplash.com/photo-1505664194779-8bebcb95c539?auto=format&fit=crop&q=80&w=1200")',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
+              flex: 1
             }}
           />
         </motion.div>
@@ -200,7 +197,7 @@ export default function HeroSection() {
                 fontFamily: 'var(--font-heading)',
                 fontWeight: '700',
                 margin: 0,
-                color: 'var(--color-primary)'
+                color: '#ffffff'
               }}
             >
               Indonesia

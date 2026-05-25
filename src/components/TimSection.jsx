@@ -5,22 +5,26 @@ import { useState } from 'react'
 
 export default function TimSection() {
   const [hoveredIdx, setHoveredIdx] = useState(null)
+  const [loadedImages, setLoadedImages] = useState({})
 
   const anggotaTim = [
     {
       nama: 'Aditya Arfriansyah',
-      nis: 'Presensi: 1',
-      peran: 'Ketua & Peneliti Utama'
+      presensi: 'Presensi: 1',
+      peran: 'Developer, Kurator Materi',
+      foto: 'Adit_Picture.webp'
     },
     {
       nama: 'Akhtar Akifa Sakhi',
-      nis: 'Presensi 2',
-      peran: 'Project Manajer'
+      presensi: 'Presensi 2',
+      peran: 'Ketua, Developer, Kurator Materi, UI/UX Designer',
+      foto: 'Akhtar_Picture.webp'
     },
     {
       nama: 'Banoe Izdihar Tsuraya',
-      nis: 'Presensi 9',
-      peran: 'Desainer & Developer'
+      presensi: 'Presensi 9',
+      peran: 'Developer, Kurator Materi',
+      foto: 'Banoe_Picture.webp'
     }
   ]
 
@@ -83,22 +87,42 @@ export default function TimSection() {
                   marginBottom: '24px',
                   boxShadow: '0 8px 24px rgba(114, 24, 24, 0.15)',
                   cursor: 'pointer',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  position: 'relative'
                 }}
               >
                 {/* Placeholder - akan diganti dengan gambar */}
                 <img
-                  src={`/images/tim/tim-${idx + 1}.webp`}
+                  src={`/images/tim/${m.foto}`}
                   alt={m.nama}
                   style={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover'
                   }}
+                  onLoad={() => {
+                    setLoadedImages(prev => ({ ...prev, [idx]: true }))
+                  }}
                   onError={(e) => {
                     e.target.style.display = 'none'
                   }}
                 />
+                {/* Fallback text saat gambar tidak ada */}
+                {!loadedImages[idx] && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      color: '#ffffff',
+                      fontFamily: 'var(--font-heading)',
+                      fontSize: '0.9rem',
+                      textAlign: 'center',
+                      padding: '20px',
+                      pointerEvents: 'none'
+                    }}
+                  >
+                    Foto akan ditambahkan
+                  </span>
+                )}
               </motion.div>
 
               {/* Name - Zoom on hover */}
@@ -128,7 +152,7 @@ export default function TimSection() {
                   marginBottom: '16px'
                 }}
               >
-                {m.nis}
+                {m.presensi}
               </span>
 
               {/* Role Badge */}

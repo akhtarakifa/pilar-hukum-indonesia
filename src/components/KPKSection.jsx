@@ -33,7 +33,7 @@ export default function KPKSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           style={{
-            height: '320px',
+            height: 'clamp(240px, 320px, 320px)',
             width: '100%',
             borderRadius: 'var(--border-radius-lg)',
             overflow: 'hidden',
@@ -43,7 +43,7 @@ export default function KPKSection() {
           }}
         >
           <ImageWithSkeleton
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1440"
+            src="/images/kpk/desktop/KPK_Picture.webp"
             alt="Gedung KPK Merah Putih"
           />
           <div
