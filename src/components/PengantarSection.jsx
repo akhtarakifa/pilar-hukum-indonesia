@@ -25,7 +25,7 @@ export default function PengantarSection() {
           <motion.h2
             style={{ marginBottom: '24px', fontFamily: 'var(--font-heading)' }}
           >
-            <SplitText text="Mengapa Reformasi Lahir?" />
+            Mengapa Reformasi Lahir?
           </motion.h2>
           <motion.p
             initial={{ y: 40, opacity: 0 }}
@@ -218,37 +218,58 @@ export default function PengantarSection() {
           .timeline-container {
             flex-direction: column;
             align-items: flex-start;
-            padding-left: 20px;
-            gap: 40px;
+            padding-left: 40px;
+            gap: 50px;
           }
           .timeline-container::before {
             content: '';
             position: absolute;
-            left: 28px;
-            top: 10px;
-            bottom: 10px;
+            left: 8px;
+            top: 0;
+            bottom: 0;
             width: 2px;
             background-color: var(--color-border);
             z-index: 1;
           }
           .timeline-node {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: auto auto;
+            gap: 0 16px;
+            align-items: start;
             text-align: left;
-            padding-left: 30px;
+            position: relative;
+            margin-left: 0;
           }
-          .timeline-node > div {
-            align-items: flex-start !important;
-            margin-bottom: 8px !important;
-          }
-          .timeline-node > div > div:first-child {
+          .timeline-node > div:first-child {
+            grid-column: 1;
+            grid-row: 1 / 3;
             position: absolute;
-            left: -2px;
-            top: 2px;
+            left: -32px;
+            top: 4px;
+          }
+          .timeline-node > div:first-child > div:first-child {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--color-primary);
+            border: 3px solid var(--color-surface);
+            box-shadow: 0 0 0 3px var(--color-border);
+            z-index: 3;
+            margin-bottom: 0;
           }
           .timeline-connector-line {
             display: none;
+          }
+          .timeline-node > div:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+            margin-bottom: 8px;
+            margin-left: 0;
+          }
+          .timeline-node > p {
+            grid-column: 2;
+            grid-row: 2;
           }
         }
       `}</style>

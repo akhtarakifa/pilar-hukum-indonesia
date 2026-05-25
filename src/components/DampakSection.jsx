@@ -69,7 +69,7 @@ export default function DampakSection() {
             Dampak & Signifikansi
           </span>
           <h2 style={{ fontFamily: 'var(--font-heading)', marginTop: '8px', fontSize: '2.5rem' }}>
-            <SplitText text="Warisan Dua Lembaga untuk Indonesia" />
+            Warisan Dua Lembaga untuk Indonesia
           </h2>
         </div>
 

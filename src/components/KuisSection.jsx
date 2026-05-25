@@ -88,7 +88,7 @@ export default function KuisSection() {
             Kuis Interaktif
           </span>
           <h2 style={{ fontFamily: 'var(--font-heading)', marginTop: '8px', fontSize: '2.5rem' }}>
-            <SplitText text="Uji Pemahamanmu" />
+            Uji Pemahamanmu
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginTop: '8px' }}>
             Asah pengetahuanmu tentang KPK dan Mahkamah Konstitusi

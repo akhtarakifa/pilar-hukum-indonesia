@@ -58,7 +58,7 @@ export default function KPKSection() {
           >
             <div style={{ color: 'white' }}>
               <Badge variant="accent" style={{ marginBottom: '12px' }}>Lembaga Anti-Korupsi</Badge>
-              <h2 style={{ color: 'white', fontFamily: 'var(--font-heading)', margin: 0, fontSize: '2.5rem' }}>
+              <h2 style={{ color: 'white', fontFamily: 'var(--font-heading)', margin: 0, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
                 Komisi Pemberantasan Korupsi (KPK)
               </h2>
             </div>

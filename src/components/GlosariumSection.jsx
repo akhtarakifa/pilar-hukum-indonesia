@@ -22,7 +22,7 @@ export default function GlosariumSection() {
             Panduan Istilah
           </span>
           <h2 style={{ fontFamily: 'var(--font-heading)', marginTop: '8px', fontSize: '2.5rem' }}>
-            <SplitText text="Glosarium Hukum" />
+            Glosarium Hukum
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginTop: '8px' }}>
             Istilah-istilah hukum yang perlu kamu tahu dalam perjalanan sejarah hukum Indonesia.

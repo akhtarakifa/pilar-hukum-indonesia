@@ -112,7 +112,7 @@ export default function ReferensiSection() {
             Daftar Pustaka
           </span>
           <h2 style={{ fontFamily: 'var(--font-heading)', marginTop: '8px', fontSize: '2.5rem' }}>
-            <SplitText text="Sumber & Referensi" />
+            Sumber & Referensi
           </h2>
         </div>
 

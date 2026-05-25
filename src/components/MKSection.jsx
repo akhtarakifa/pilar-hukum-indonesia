@@ -112,7 +112,7 @@ export default function MKSection() {
           >
             <div style={{ color: 'white' }}>
               <Badge variant="accent" style={{ marginBottom: '12px' }}>Benteng Konstitusi</Badge>
-              <h2 style={{ color: 'white', fontFamily: 'var(--font-heading)', margin: 0, fontSize: '2.5rem' }}>
+              <h2 style={{ color: 'white', fontFamily: 'var(--font-heading)', margin: 0, fontSize: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
                 Mahkamah Konstitusi (MK)
               </h2>
             </div>

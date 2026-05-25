@@ -38,7 +38,7 @@ export default function TimSection() {
             Tim Penyusun
           </span>
           <h2 style={{ fontFamily: 'var(--font-heading)', marginTop: '8px', fontSize: '2.5rem' }}>
-            <SplitText text="Pilar Hukum Indonesia" />
+            Pilar Hukum Indonesia
           </h2>
           <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', marginTop: '8px', fontFamily: 'var(--font-heading)', fontStyle: 'italic' }}>
             Kelompok 4 - XI SIJA 1

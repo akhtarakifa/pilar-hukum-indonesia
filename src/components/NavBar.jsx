@@ -157,7 +157,7 @@ export default function NavBar() {
             style={{
               width: '24px',
               height: '2px',
-              backgroundColor: isOpen || !scrolled ? '#ffffff' : 'var(--color-text)',
+              backgroundColor: isOpen ? '#ffffff' : (scrolled ? 'var(--color-text)' : '#ffffff'),
               transition: 'transform 0.3s, background-color 0.3s',
               transform: isOpen ? 'rotate(45deg) translate(5px, 6px)' : 'none'
             }}
@@ -166,7 +166,7 @@ export default function NavBar() {
             style={{
               width: '24px',
               height: '2px',
-              backgroundColor: isOpen || !scrolled ? '#ffffff' : 'var(--color-text)',
+              backgroundColor: isOpen ? '#ffffff' : (scrolled ? 'var(--color-text)' : '#ffffff'),
               transition: 'opacity 0.3s, background-color 0.3s',
               opacity: isOpen ? 0 : 1
             }}
@@ -175,7 +175,7 @@ export default function NavBar() {
             style={{
               width: '24px',
               height: '2px',
-              backgroundColor: isOpen || !scrolled ? '#ffffff' : 'var(--color-text)',
+              backgroundColor: isOpen ? '#ffffff' : (scrolled ? 'var(--color-text)' : '#ffffff'),
               transition: 'transform 0.3s, background-color 0.3s',
               transform: isOpen ? 'rotate(-45deg) translate(5px, -6px)' : 'none'
             }}
